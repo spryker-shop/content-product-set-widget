@@ -22,12 +22,6 @@ use Twig\TwigFunction;
 
 class ContentProductSetWidgetFactory extends AbstractFactory
 {
-    /**
-     * @param \Twig\Environment $twig
-     * @param string $localeName
-     *
-     * @return \Spryker\Shared\Twig\TwigFunctionProvider
-     */
     public function createContentProductSetTwigFunctionProvider(
         Environment $twig,
         string $localeName
@@ -40,12 +34,6 @@ class ContentProductSetWidgetFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @param \Twig\Environment $twig
-     * @param string $localeName
-     *
-     * @return \Twig\TwigFunction
-     */
     public function createContentProductSetTwigFunction(
         Environment $twig,
         string $localeName
@@ -59,9 +47,6 @@ class ContentProductSetWidgetFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \SprykerShop\Yves\ContentProductSetWidget\Reader\ContentProductSetReaderInterface
-     */
     public function createContentProductSetReader(): ContentProductSetReaderInterface
     {
         return new ContentProductSetReader(
@@ -70,9 +55,6 @@ class ContentProductSetWidgetFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \SprykerShop\Yves\ContentProductSetWidget\Reader\ContentProductAbstractReaderInterface
-     */
     public function createContentProductAbstractReader(): ContentProductAbstractReaderInterface
     {
         return new ContentProductAbstractReader(
@@ -80,25 +62,16 @@ class ContentProductSetWidgetFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \SprykerShop\Yves\ContentProductSetWidget\Dependency\Client\ContentProductSetWidgetToContentProductSetClientInterface
-     */
     public function getContentProductSetClient(): ContentProductSetWidgetToContentProductSetClientInterface
     {
         return $this->getProvidedDependency(ContentProductSetWidgetDependencyProvider::CLIENT_CONTENT_PRODUCT_SET);
     }
 
-    /**
-     * @return \SprykerShop\Yves\ContentProductSetWidget\Dependency\Client\ContentProductSetWidgetToProductSetStorageClientInterface
-     */
     public function getProductSetStorageClient(): ContentProductSetWidgetToProductSetStorageClientInterface
     {
         return $this->getProvidedDependency(ContentProductSetWidgetDependencyProvider::CLIENT_PRODUCT_SET_STORAGE);
     }
 
-    /**
-     * @return \SprykerShop\Yves\ContentProductSetWidget\Dependency\Client\ContentProductSetWidgetToProductStorageClientInterface
-     */
     public function getProductStorageClient(): ContentProductSetWidgetToProductStorageClientInterface
     {
         return $this->getProvidedDependency(ContentProductSetWidgetDependencyProvider::CLIENT_PRODUCT_STORAGE);

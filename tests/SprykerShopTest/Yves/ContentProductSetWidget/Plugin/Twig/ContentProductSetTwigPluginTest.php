@@ -99,9 +99,6 @@ class ContentProductSetTwigPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testContentProductSetNotFound(): void
     {
         $this->markTestSkipped('Test needs to be fixed.');
@@ -118,9 +115,6 @@ class ContentProductSetTwigPluginTest extends Unit
         $this->assertSame(static::MESSAGE_CONTENT_PRODUCT_ABSTRACT_LIST_NOT_FOUND, $productAbstractContent);
     }
 
-    /**
-     * @return void
-     */
     public function testContentProductSetWrongType(): void
     {
         // Assign
@@ -141,9 +135,6 @@ class ContentProductSetTwigPluginTest extends Unit
         $this->assertSame(static::MESSAGE_WRONG_CONTENT_PRODUCT_ABSTRACT_LIST_TYPE, $productSetContent);
     }
 
-    /**
-     * @return void
-     */
     public function testContentProductSetWrongTemplate(): void
     {
         // Assign
@@ -164,9 +155,6 @@ class ContentProductSetTwigPluginTest extends Unit
         $this->assertSame(static::MESSAGE_NOT_SUPPORTED_TEMPLATE, $productSetContent);
     }
 
-    /**
-     * @return void
-     */
     public function testContentProductSetRendering(): void
     {
         // Assign
@@ -189,9 +177,6 @@ class ContentProductSetTwigPluginTest extends Unit
         $this->assertSame(static::RENDERED_STRING, $productSetContent);
     }
 
-    /**
-     * @return void
-     */
     protected function setContentProductClientException(): void
     {
         $contentProductSetWidgetToContentProductClientBridge = $this->getMockBuilder(ContentProductSetWidgetToContentProductSetClientInterface::class)->getMock();
@@ -199,11 +184,6 @@ class ContentProductSetTwigPluginTest extends Unit
         $this->tester->setDependency(ContentProductSetWidgetDependencyProvider::CLIENT_CONTENT_PRODUCT_SET, $contentProductSetWidgetToContentProductClientBridge);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ContentProductSetTypeTransfer|null $contentTypeContextTransfer
-     *
-     * @return void
-     */
     protected function setContentProductSetClientReturn(?ContentProductSetTypeTransfer $contentTypeContextTransfer = null): void
     {
         $contentProductSetWidgetToContentProductClientBridge = $this->getMockBuilder(ContentProductSetWidgetToContentProductSetClientInterface::class)->getMock();
@@ -211,9 +191,6 @@ class ContentProductSetTwigPluginTest extends Unit
         $this->tester->setDependency(ContentProductSetWidgetDependencyProvider::CLIENT_CONTENT_PRODUCT_SET, $contentProductSetWidgetToContentProductClientBridge);
     }
 
-    /**
-     * @return void
-     */
     protected function setProductSetStorageClientReturn(): void
     {
         $contentProductSetWidgetToProductSetStorageClientBridge = $this->getMockBuilder(ContentProductSetWidgetToProductSetStorageClientInterface::class)->getMock();
@@ -221,9 +198,6 @@ class ContentProductSetTwigPluginTest extends Unit
         $this->tester->setDependency(ContentProductSetWidgetDependencyProvider::CLIENT_PRODUCT_SET_STORAGE, $contentProductSetWidgetToProductSetStorageClientBridge);
     }
 
-    /**
-     * @return void
-     */
     protected function setProductStorageClientReturn(): void
     {
         $contentProductSetWidgetToProductStorageClientBridge = $this->getMockBuilder(ContentProductSetWidgetToProductStorageClientInterface::class)->getMock();
@@ -242,9 +216,6 @@ class ContentProductSetTwigPluginTest extends Unit
         return $this->createTwigMock()->getFunction($functionName->getValue());
     }
 
-    /**
-     * @return \SprykerShop\Yves\ContentProductSetWidget\Plugin\Twig\ContentProductSetTwigPlugin
-     */
     protected function createTwigPlugin(): ContentProductSetTwigPlugin
     {
         return new ContentProductSetTwigPlugin();
@@ -266,9 +237,6 @@ class ContentProductSetTwigPluginTest extends Unit
         return $twigMock;
     }
 
-    /**
-     * @return array
-     */
     protected function getContext(): array
     {
         $context = [];

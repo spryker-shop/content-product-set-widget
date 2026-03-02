@@ -94,12 +94,6 @@ class ContentProductSetTwigFunctionProvider extends TwigFunctionProvider
      */
     protected $contentProductAbstractReader;
 
-    /**
-     * @param \Twig\Environment $twig
-     * @param string $localeName
-     * @param \SprykerShop\Yves\ContentProductSetWidget\Reader\ContentProductSetReaderInterface $contentProductSetReader
-     * @param \SprykerShop\Yves\ContentProductSetWidget\Reader\ContentProductAbstractReaderInterface $contentProductAbstractReader
-     */
     public function __construct(
         Environment $twig,
         string $localeName,
@@ -112,17 +106,11 @@ class ContentProductSetTwigFunctionProvider extends TwigFunctionProvider
         $this->contentProductAbstractReader = $contentProductAbstractReader;
     }
 
-    /**
-     * @return string
-     */
     public function getFunctionName(): string
     {
         return static::FUNCTION_CONTENT_PRODUCT_SET;
     }
 
-    /**
-     * @return callable
-     */
     public function getFunction(): callable
     {
         return function (array $context, string $contentKey, string $templateIdentifier): string {
@@ -179,41 +167,21 @@ class ContentProductSetTwigFunctionProvider extends TwigFunctionProvider
         ];
     }
 
-    /**
-     * @param string $contentKey
-     *
-     * @return string
-     */
     protected function getMessageProductSetNotFound(string $contentKey): string
     {
         return sprintf(static::MESSAGE_CONTENT_PRODUCT_SET_NOT_FOUND, $contentKey);
     }
 
-    /**
-     * @param string $templateIdentifier
-     *
-     * @return string
-     */
     protected function getMessageProductSetWrongTemplate(string $templateIdentifier): string
     {
         return sprintf(static::MESSAGE_NOT_SUPPORTED_TEMPLATE, $templateIdentifier);
     }
 
-    /**
-     * @param string $contentKey
-     *
-     * @return string
-     */
     protected function getMessageProductSetWrongType(string $contentKey): string
     {
         return sprintf(static::MESSAGE_WRONG_CONTENT_PRODUCT_SET_TYPE, $contentKey);
     }
 
-    /**
-     * @param array $context
-     *
-     * @return \Symfony\Component\HttpFoundation\Request
-     */
     protected function getRequest(array $context): Request
     {
         return $context['app']['request'];

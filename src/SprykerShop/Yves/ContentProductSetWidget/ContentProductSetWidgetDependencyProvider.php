@@ -30,11 +30,6 @@ class ContentProductSetWidgetDependencyProvider extends AbstractBundleDependency
      */
     public const CLIENT_CONTENT_PRODUCT_SET = 'CLIENT_CONTENT_PRODUCT_SET';
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = $this->addContentProductClient($container);
@@ -44,11 +39,6 @@ class ContentProductSetWidgetDependencyProvider extends AbstractBundleDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addContentProductClient(Container $container): Container
     {
         $container->set(static::CLIENT_CONTENT_PRODUCT_SET, function (Container $container) {
@@ -60,11 +50,6 @@ class ContentProductSetWidgetDependencyProvider extends AbstractBundleDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addProductSetStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_PRODUCT_SET_STORAGE, function (Container $container) {
@@ -76,11 +61,6 @@ class ContentProductSetWidgetDependencyProvider extends AbstractBundleDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addProductStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_PRODUCT_STORAGE, function (Container $container) {

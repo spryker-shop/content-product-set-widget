@@ -24,12 +24,6 @@ class ContentProductSetWidgetToContentProductSetClientBridge implements ContentP
         $this->contentProductSetClient = $contentProductSetClient;
     }
 
-    /**
-     * @param string $contentKey
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ContentProductSetTypeTransfer|null
-     */
     public function executeProductSetTypeByKey(string $contentKey, string $localeName): ?ContentProductSetTypeTransfer
     {
         return $this->contentProductSetClient->executeProductSetTypeByKey($contentKey, $localeName);

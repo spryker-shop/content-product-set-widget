@@ -11,11 +11,5 @@ use Generated\Shared\Transfer\ContentProductSetTypeTransfer;
 
 interface ContentProductSetWidgetToContentProductSetClientInterface
 {
-    /**
-     * @param string $contentKey
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ContentProductSetTypeTransfer|null
-     */
     public function executeProductSetTypeByKey(string $contentKey, string $localeName): ?ContentProductSetTypeTransfer;
 }

@@ -23,10 +23,6 @@ class ContentProductSetReader implements ContentProductSetReaderInterface
      */
     protected $productSetStorageClient;
 
-    /**
-     * @param \SprykerShop\Yves\ContentProductSetWidget\Dependency\Client\ContentProductSetWidgetToContentProductSetClientInterface $contentProductSetClient
-     * @param \SprykerShop\Yves\ContentProductSetWidget\Dependency\Client\ContentProductSetWidgetToProductSetStorageClientInterface $productSetStorageClient
-     */
     public function __construct(
         ContentProductSetWidgetToContentProductSetClientInterface $contentProductSetClient,
         ContentProductSetWidgetToProductSetStorageClientInterface $productSetStorageClient
@@ -35,12 +31,6 @@ class ContentProductSetReader implements ContentProductSetReaderInterface
         $this->productSetStorageClient = $productSetStorageClient;
     }
 
-    /**
-     * @param string $contentKey
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductSetDataStorageTransfer|null
-     */
     public function findProductSet(string $contentKey, string $localeName): ?ProductSetDataStorageTransfer
     {
         $contentProductSetTypeTransfer = $this->contentProductSetClient->executeProductSetTypeByKey($contentKey, $localeName);

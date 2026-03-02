@@ -11,11 +11,5 @@ use Generated\Shared\Transfer\ProductSetDataStorageTransfer;
 
 interface ContentProductSetReaderInterface
 {
-    /**
-     * @param string $contentKey
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductSetDataStorageTransfer|null
-     */
     public function findProductSet(string $contentKey, string $localeName): ?ProductSetDataStorageTransfer;
 }

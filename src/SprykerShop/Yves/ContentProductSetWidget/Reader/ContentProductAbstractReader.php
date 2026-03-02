@@ -17,9 +17,6 @@ class ContentProductAbstractReader implements ContentProductAbstractReaderInterf
      */
     protected $productStorageClient;
 
-    /**
-     * @param \SprykerShop\Yves\ContentProductSetWidget\Dependency\Client\ContentProductSetWidgetToProductStorageClientInterface $productStorageClient
-     */
     public function __construct(ContentProductSetWidgetToProductStorageClientInterface $productStorageClient)
     {
         $this->productStorageClient = $productStorageClient;
@@ -54,12 +51,6 @@ class ContentProductAbstractReader implements ContentProductAbstractReaderInterf
         return $productAbstractViewCollection;
     }
 
-    /**
-     * @param int $idProductAbstract
-     * @param array $selectedAttributes
-     *
-     * @return array
-     */
     protected function getSelectedAttributesByIdProductAbstract(int $idProductAbstract, array $selectedAttributes): array
     {
         return isset($selectedAttributes[$idProductAbstract]) ? array_filter($selectedAttributes[$idProductAbstract]) : [];
