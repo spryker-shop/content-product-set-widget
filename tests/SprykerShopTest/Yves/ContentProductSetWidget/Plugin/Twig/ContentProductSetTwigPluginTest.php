@@ -21,7 +21,7 @@ use SprykerShop\Yves\ContentProductSetWidget\Dependency\Client\ContentProductSet
 use SprykerShop\Yves\ContentProductSetWidget\Dependency\Client\ContentProductSetWidgetToProductStorageClientInterface;
 use SprykerShop\Yves\ContentProductSetWidget\Plugin\Twig\ContentProductSetTwigPlugin;
 use SprykerShop\Yves\ContentProductSetWidget\Twig\ContentProductSetTwigFunctionProvider;
-use Symfony\Component\HttpFoundation\ParameterBag;
+use Symfony\Component\HttpFoundation\InputBag;
 use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -250,14 +250,10 @@ class ContentProductSetTwigPluginTest extends Unit
      */
     protected function createRequestMock(): Request
     {
-        $query = $this->getMockBuilder(ParameterBag::class)->getMock();
-        $query->method('get')
-            ->willReturn(static::PARAM_ATTRIBUTE_VALUE);
-
         $request = $this->getMockBuilder(Request::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $request->query = $query;
+        $request->query = new InputBag(static::PARAM_ATTRIBUTE_VALUE);
 
         return $request;
     }
